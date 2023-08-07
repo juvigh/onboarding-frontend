@@ -1,5 +1,5 @@
 # Onboard FrontEnd Taqtile
-<p>Bem-vindo ao projeto de integração com o Instituto Taqtile! 🚀</p>
+<p>Bem-vindo ao projeto de onboarding com o Instituto Taqtile! 🚀</p>
 
 <br>
 
