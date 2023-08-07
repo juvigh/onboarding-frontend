@@ -36,6 +36,6 @@
 $ git clone https://github.com/juvigh/onboarding-frontend
 $ cd onboarding-frontend
 $ npm install
-$ npm run dev
+$ npm start
 ```
 <br>
