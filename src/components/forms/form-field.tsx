@@ -12,9 +12,10 @@ interface FormFieldProps {
   isButtonClicked: boolean;
   value: string;
   password?: boolean;
+  type?: string;
 }
 
-export const FormField = ({ label, onChange, isButtonClicked, value, email, password }: FormFieldProps) => {
+export const FormField = ({ label, onChange, isButtonClicked, value, email, password, type }: FormFieldProps) => {
   const emptyField = !value.trim() && isButtonClicked;
   const hasErrorEmail = email && !validateEmail(value) && isButtonClicked;
   const hasErrorPassword = password && !validatePassword(value) && isButtonClicked;
@@ -28,7 +29,7 @@ export const FormField = ({ label, onChange, isButtonClicked, value, email, pass
     <FormFieldContainer>
       <label>{label}</label>
       <Separator vertical size={4} />
-      <input onChange={handleInputChange} value={value} />
+      <input onChange={handleInputChange} value={value} type={type || 'text'} />
       <div className="caption-message">
         {emptyField && <ErrorMessage message="O campo é obrigatório" />}
         {!emptyField && value && hasErrorEmail && <ErrorMessage message="Este email é inválido" />}

@@ -25,6 +25,7 @@ export const LoginForm = () => {
       <FormField
         label="Senha"
         password
+        type="password"
         value={password}
         onChange={(value) => setPassword(value)}
         isButtonClicked={isButtonClicked}
