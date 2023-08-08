@@ -1,10 +1,10 @@
-.formFieldContainer {
+.form-field-container {
   display: flex;
   flex-direction: column;
 }
 
-.formFieldContainer > input {
-  padding: 8px 4px;
+.form-field-container > input {
+  padding: 12px 4px;
   border-radius: 8px;
   border: 1px solid #c5c5c5;
 }

@@ -7,7 +7,7 @@ interface FormFieldProps {
 
 export const FormField = ({ label }: FormFieldProps) => {
   return (
-    <div className="formFieldContainer">
+    <div className="form-field-container">
       <label>{label}</label>
       <Separator vertical size={4} />
       <input />
