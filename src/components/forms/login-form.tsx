@@ -1,14 +1,14 @@
 import { Button } from '../buttons/button';
 import { FormField } from './form-field';
-import './form.css';
+import { FormContainer } from './form-styles';
 
 export const LoginForm = () => {
   return (
-    <div className="form-container">
+    <FormContainer>
       <h1> Bem vindo(a) a Taqtile </h1>
       <FormField label="Email" />
       <FormField label="Senha" />
       <Button title="Entrar" />
-    </div>
+    </FormContainer>
   );
 };
