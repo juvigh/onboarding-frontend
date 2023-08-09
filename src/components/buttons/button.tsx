@@ -1,4 +1,4 @@
-import './button.css';
+import { ButtonContainer } from './button-styles';
 
 interface ButtonProps {
   title: string;
@@ -6,8 +6,8 @@ interface ButtonProps {
 
 export const Button = ({ title }: ButtonProps) => {
   return (
-    <div className="button-container">
+    <ButtonContainer>
       <button>{title}</button>
-    </div>
+    </ButtonContainer>
   );
 };
