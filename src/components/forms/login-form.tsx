@@ -43,17 +43,9 @@ export const LoginForm = () => {
   return (
     <FormContainer>
       <h1> Bem vindo(a) a Taqtile </h1>
-      <FormField
-        label="Email"
-        value={email}
-        email
-        onChange={(value) => setEmail(value)}
-        isButtonClicked={isButtonClicked}
-      />
+      <FormField label="Email" value={email} onChange={(value) => setEmail(value)} isButtonClicked={isButtonClicked} />
       <FormField
         label="Senha"
-        password
-        type="password"
         value={password}
         onChange={(value) => setPassword(value)}
         isButtonClicked={isButtonClicked}
