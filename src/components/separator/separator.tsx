@@ -1,4 +1,5 @@
 import React from 'react';
+import { SeparatorStyle } from './separator-styles';
 
 interface SeparatorProps {
   vertical?: boolean;
@@ -7,10 +8,5 @@ interface SeparatorProps {
 }
 
 export const Separator = ({ vertical = false, horizontal = false, size }: SeparatorProps) => {
-  const separatorStyle = {
-    height: vertical ? `${size}px` : undefined,
-    width: horizontal ? `${size}px` : undefined,
-  };
-
-  return <div style={separatorStyle}></div>;
+  return <SeparatorStyle vertical={vertical} horizontal={horizontal} size={size} />;
 };
