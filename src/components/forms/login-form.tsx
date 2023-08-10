@@ -22,8 +22,26 @@ export const LoginForm = () => {
     e.preventDefault();
     setIsButtonClicked(true);
 
+<<<<<<< HEAD
     if (isAnyFieldEmpty) {
       return;
+=======
+    try {
+      const result: FetchResult<LoginUserData> = await loginUser({
+        variables: { data: { email, password } },
+      });
+
+      if (!isAnyFieldEmpty) {
+        if (result.data && result.data.login.token) {
+          localStorage.setItem('authToken', result.data.login.token);
+          navigate('/');
+        } else {
+          console.error('Token não encontrado na resposta da mutação');
+        }
+      }
+    } catch (err) {
+      console.error('Erro na mutação', err);
+>>>>>>> Add HomePage route and component
     }
 
     loginUser({
