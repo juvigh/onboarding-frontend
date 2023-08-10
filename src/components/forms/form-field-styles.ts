@@ -8,7 +8,7 @@ export const FormFieldContainer = styled.div`
 
   input {
     padding: ${INPUT_PADDING};
-    border-radius: ${INPUT_BORDER_RADIUS}px;
+    border-radius: ${INPUT_BORDER_RADIUS};
     border: ${INPUT_BORDER};
   }
 `;
