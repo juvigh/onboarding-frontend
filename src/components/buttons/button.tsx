@@ -5,9 +5,5 @@ interface ButtonProps {
 }
 
 export const Button = ({ title }: ButtonProps) => {
-  return (
-    <ButtonContainer>
-      <button>{title}</button>
-    </ButtonContainer>
-  );
+  return <ButtonContainer>{title}</ButtonContainer>;
 };
