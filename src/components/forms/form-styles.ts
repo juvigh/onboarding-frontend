@@ -6,4 +6,8 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${GAP}px;
+
+  span {
+    color: red;
+  }
 `;
