@@ -32,7 +32,6 @@ export const LoginForm = () => {
 
         if (result.data && result.data.login.token) {
           localStorage.setItem('authToken', result.data.login.token);
-          console.log('Token armazenado:', result.data.login.token);
         }
       } catch (err) {
         console.error('Erro na mutação', err);
