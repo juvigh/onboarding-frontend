@@ -5,7 +5,6 @@ import { FormContainer } from './form-styles';
 import { useLoginMutation } from '../../api/fetch-login-user';
 import { ErrorMessage } from './error-message';
 import { useNavigate } from 'react-router-dom';
-import { LoadingIndicator } from '../loading/loading-indicador';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -23,26 +22,8 @@ export const LoginForm = () => {
     e.preventDefault();
     setIsButtonClicked(true);
 
-<<<<<<< HEAD
     if (isAnyFieldEmpty) {
       return;
-=======
-    try {
-      const result: FetchResult<LoginUserData> = await loginUser({
-        variables: { data: { email, password } },
-      });
-
-      if (!isAnyFieldEmpty) {
-        if (result.data && result.data.login.token) {
-          localStorage.setItem('authToken', result.data.login.token);
-          navigate('/');
-        } else {
-          console.error('Token não encontrado na resposta da mutação');
-        }
-      }
-    } catch (err) {
-      console.error('Erro na mutação', err);
->>>>>>> Add HomePage route and component
     }
 
     loginUser({
@@ -62,24 +43,20 @@ export const LoginForm = () => {
       {loading ? (
         <LoadingIndicator />
       ) : (
-        <FormContainer>
-          <h1> Bem vindo(a) a Taqtile </h1>
-          <FormField
-            label="Email"
-            value={email}
-            onChange={(value) => setEmail(value)}
-            isButtonClicked={isButtonClicked}
-          />
-          <FormField
-            label="Senha"
-            value={password}
-            onChange={(value) => setPassword(value)}
-            isButtonClicked={isButtonClicked}
-          />
-          {!isAnyFieldEmpty && error && <ErrorMessage message={error.message} />}
-          <Button title="Entrar" onClick={handleFormSubmit} />
-        </FormContainer>
       )}
     </>
+    <FormContainer>
+      <h1> Bem vindo(a) a Taqtile </h1>
+      <FormField label="Email" value={email} onChange={(value) => setEmail(value)} isButtonClicked={isButtonClicked} />
+      <FormField
+        label="Senha"
+        value={password}
+        onChange={(value) => setPassword(value)}
+        isButtonClicked={isButtonClicked}
+      />
+      {loading && <div>Carregando...</div>}
+      {!isAnyFieldEmpty && error && <ErrorMessage message={error.message} />}
+      <Button title="Entrar" onClick={handleFormSubmit} />
+    </FormContainer>
   );
 };
