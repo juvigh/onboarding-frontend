@@ -1,3 +1,10 @@
+import { UserList } from '../../components/user-list/user-list';
+import { Container } from './home-styles';
+
 export const HomePage = () => {
-  return <h1> Em construção</h1>;
+  return (
+    <Container>
+      <UserList />
+    </Container>
+  );
 };
