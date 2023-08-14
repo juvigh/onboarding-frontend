@@ -4,11 +4,13 @@ import { FormField } from './form-field';
 import { FormContainer } from './form-styles';
 import { useLoginMutation } from '../../api/fetch-login-user';
 import { ErrorMessage } from './error-message';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const navigate = useNavigate();
 
   const { loginUser, loading, error } = useLoginMutation();
 
@@ -28,6 +30,7 @@ export const LoginForm = () => {
       variables: { data: { email, password } },
       onCompleted: (data) => {
         localStorage.setItem('authToken', data.login.token);
+        navigate('/');
       },
       onError: (error) => {
         console.error('Erro na mutação', error);
