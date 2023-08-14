@@ -1,5 +1,7 @@
 import React from 'react';
 import { UserItemContainer } from './user-list-styles';
+import { H3 } from '../../styles/headings';
+import { Paragraph } from '../../styles/paragraph';
 
 interface UserItemProps {
   username: string;
@@ -10,8 +12,8 @@ interface UserItemProps {
 export const UserItem = ({ username, email, hasBorderBottom }: UserItemProps) => {
   return (
     <UserItemContainer hasBorderBottom={hasBorderBottom}>
-      <h3>{username}</h3>
-      <p>{email}</p>
+      <H3>{username}</H3>
+      <Paragraph>{email}</Paragraph>
     </UserItemContainer>
   );
 };
