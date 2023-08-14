@@ -5,6 +5,7 @@ import { H1 } from '../../styles/text-styles';
 import { fetchUsers } from '../../api/fetch-users';
 import { LoadingIndicator } from '../loading/loading-indicador';
 import { ErrorMessage } from '../forms/error-message';
+import { useNavigate } from 'react-router-dom';
 
 interface UserListProps {
   token: string;
@@ -13,6 +14,11 @@ interface UserListProps {
 export const UserList = ({ token }: UserListProps) => {
   const { data, loading, error } = fetchUsers(token);
   const users = data?.users.nodes ?? [];
+  const navigate = useNavigate();
+  if (error && error.message === 'Operação não autenticada.') {
+    navigate('/login');
+  }
+
   return (
     <>
       {loading ? (
