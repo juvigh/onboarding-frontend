@@ -5,6 +5,7 @@ import { FormContainer } from './form-styles';
 import { useLoginMutation } from '../../api/fetch-login-user';
 import { ErrorMessage } from './error-message';
 import { useNavigate } from 'react-router-dom';
+import { LoadingIndicator } from '../loading/loading-indicador';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -38,7 +39,9 @@ export const LoginForm = () => {
     });
   };
 
-  return (
+  return loading ? (
+    <LoadingIndicator />
+  ) : (
     <FormContainer>
       <h1> Bem vindo(a) a Taqtile </h1>
       <FormField label="Email" value={email} onChange={(value) => setEmail(value)} isButtonClicked={isButtonClicked} />
@@ -46,6 +49,7 @@ export const LoginForm = () => {
         label="Senha"
         value={password}
         onChange={(value) => setPassword(value)}
+        type="password"
         isButtonClicked={isButtonClicked}
       />
       {loading && <div>Carregando...</div>}
