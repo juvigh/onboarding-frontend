@@ -39,30 +39,22 @@ export const LoginForm = () => {
     });
   };
 
-  return (
-    <>
-      {loading ? (
-        <LoadingIndicator />
-      ) : (
-        <FormContainer>
-          <h1> Bem vindo(a) a Taqtile </h1>
-          <FormField
-            label="Email"
-            value={email}
-            onChange={(value) => setEmail(value)}
-            isButtonClicked={isButtonClicked}
-          />
-          <FormField
-            label="Senha"
-            value={password}
-            onChange={(value) => setPassword(value)}
-            isButtonClicked={isButtonClicked}
-          />
-          {loading && <div>Carregando...</div>}
-          {!isAnyFieldEmpty && error && <ErrorMessage message={error.message} />}
-          <Button title="Entrar" onClick={handleFormSubmit} />
-        </FormContainer>
-      )}
-    </>
+  return loading ? (
+    <LoadingIndicator />
+  ) : (
+    <FormContainer>
+      <h1> Bem vindo(a) a Taqtile </h1>
+      <FormField label="Email" value={email} onChange={(value) => setEmail(value)} isButtonClicked={isButtonClicked} />
+      <FormField
+        label="Senha"
+        value={password}
+        onChange={(value) => setPassword(value)}
+        type="password"
+        isButtonClicked={isButtonClicked}
+      />
+      {loading && <div>Carregando...</div>}
+      {!isAnyFieldEmpty && error && <ErrorMessage message={error.message} />}
+      <Button title="Entrar" onClick={handleFormSubmit} />
+    </FormContainer>
   );
 };
