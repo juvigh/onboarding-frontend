@@ -1,3 +1,7 @@
+import React from 'react';
+import { Button } from '../buttons/button';
+import { PaginationContainer } from './pagination-styles';
+import { Separator } from '../separator/separator';
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -6,28 +10,26 @@ interface PaginationProps {
 
 export const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
   const handlePreviousPage = () => {
-    if (currentPage > 0) {
+    if (currentPage > 1) {
       onPageChange(currentPage - 1);
     }
   };
 
   const handleNextPage = () => {
-    if (currentPage < totalPages - 1) {
+    if (currentPage < totalPages) {
       onPageChange(currentPage + 1);
     }
   };
 
   return (
-    <div>
-      <button onClick={handlePreviousPage} disabled={currentPage === 0}>
-        Anterior
-      </button>
+    <PaginationContainer>
+      <Button title="Anterior" bgColor="#928f8f" onClick={handlePreviousPage} disable={currentPage === 1} />
+      <Separator horizontal size={8} />
       <span>
-        Página {currentPage + 1} de {totalPages}
+        Página {currentPage} de {totalPages}
       </span>
-      <button onClick={handleNextPage} disabled={currentPage === totalPages - 1}>
-        Próximo
-      </button>
-    </div>
+      <Separator horizontal size={8} />
+      <Button title="Próximo" bgColor="#928f8f" onClick={handleNextPage} disable={currentPage === totalPages} />
+    </PaginationContainer>
   );
 };
