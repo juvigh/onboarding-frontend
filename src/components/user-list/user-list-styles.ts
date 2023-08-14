@@ -12,16 +12,12 @@ export const UserListContainer = styled.div`
   flex-direction: column;
   border: ${USER_LIST_BORDER};
   border-radius: ${USER_LIST_BORDER_RADIUS};
-  .title {
-    background: blueviolet;
-    padding: ${PADDING};
-    border-radius: ${USER_LIST_BORDER_RADIUS} ${USER_LIST_BORDER_RADIUS} 0 0;
-  }
-  h1 {
-    text-align: center;
-    margin: 0;
-    color: white;
-  }
+`;
+
+export const Title = styled.div`
+  background: blueviolet;
+  padding: ${PADDING};
+  border-radius: ${USER_LIST_BORDER_RADIUS} ${USER_LIST_BORDER_RADIUS} 0 0;
 `;
 
 export const UserItemContainer = styled.div<UserItemContainerProps>`

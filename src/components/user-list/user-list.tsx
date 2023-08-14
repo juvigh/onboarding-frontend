@@ -1,6 +1,7 @@
 import React from 'react';
 import { UserItem } from './user-item';
-import { UserListContainer } from './user-list-styles';
+import { Title, UserListContainer } from './user-list-styles';
+import { H1 } from '../../styles/headings';
 
 const fakeUsers = [
   { id: 1, username: 'user1', email: 'user1@example.com' },
@@ -12,9 +13,9 @@ const fakeUsers = [
 export const UserList = () => {
   return (
     <UserListContainer>
-      <div className="title">
-        <h1> Lista de usuários </h1>
-      </div>
+      <Title>
+        <H1> Lista de usuários </H1>
+      </Title>
       {fakeUsers.map((user, index) => (
         <UserItem
           key={user.id}
