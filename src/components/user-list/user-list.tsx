@@ -7,6 +7,7 @@ import { LoadingIndicator } from '../loading/loading-indicador';
 import { ErrorMessage } from '../forms/error-message';
 import { useNavigate } from 'react-router-dom';
 import { Pagination } from '../pagination/pagination';
+import { Separator } from '../separator/separator';
 
 interface UserListProps {
   token: string;
@@ -51,6 +52,7 @@ export const UserList = ({ token }: UserListProps) => {
           </>
         )}
       </UserListContainer>
+      <Separator vertical size={8} />
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
     </>
   );
