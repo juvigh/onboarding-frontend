@@ -8,8 +8,8 @@ export const LoadingContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: ${LOADING_CONTAINER_HEIGHT};
+`;
 
-  img {
-    width: ${LOADING_CONTAINER_WIDTH};
-  }
+export const ImageLoading = styled.img`
+  width: ${LOADING_CONTAINER_WIDTH};
 `;
