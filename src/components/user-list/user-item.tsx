@@ -1,7 +1,6 @@
 import React from 'react';
 import { UserItemContainer } from './user-list-styles';
-import { H3 } from '../../styles/headings';
-import { Paragraph } from '../../styles/paragraph';
+import { H3, Paragraph } from '../../styles/text-styles';
 
 interface UserItemProps {
   username: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserItem } from './user-item';
 import { Title, UserListContainer } from './user-list-styles';
-import { H1 } from '../../styles/headings';
+import { H1 } from '../../styles/text-styles';
 
 const fakeUsers = [
   { id: 1, username: 'user1', email: 'user1@example.com' },
