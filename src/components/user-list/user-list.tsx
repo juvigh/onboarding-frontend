@@ -20,14 +20,14 @@ export const UserList = ({ token }: UserListProps) => {
   }
 
   return (
-    <>
+    <UserListContainer>
+      <Title>
+        <H1> Lista de usuários </H1>
+      </Title>
       {loading ? (
         <LoadingIndicator />
       ) : (
-        <UserListContainer>
-          <Title>
-            <H1> Lista de usuários </H1>
-          </Title>
+        <>
           {users.map((user, index) => (
             <UserItem
               key={user.id}
@@ -37,8 +37,8 @@ export const UserList = ({ token }: UserListProps) => {
             />
           ))}
           {error && <ErrorMessage message={error.message} />}
-        </UserListContainer>
+        </>
       )}
-    </>
+    </UserListContainer>
   );
 };
