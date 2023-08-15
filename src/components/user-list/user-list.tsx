@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { UserItem } from './user-item';
 import { Title, UserListContainer } from './user-list-styles';
 import { H1 } from '../../styles/text-styles';
@@ -17,7 +17,7 @@ interface UserListProps {
 export const UserList = ({ token }: UserListProps) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data, loading, error } = fetchUsers({ token, page: currentPage });
+  const { data, loading, error, refetch } = fetchUsers({ token, page: currentPage });
 
   const users = data?.users.nodes ?? [];
   const pageInfo = data?.users.count;
@@ -30,6 +30,10 @@ export const UserList = ({ token }: UserListProps) => {
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
   };
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   return (
     <>

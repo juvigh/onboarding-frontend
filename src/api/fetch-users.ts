@@ -8,7 +8,7 @@ interface FetchUsersOptions {
 
 export const fetchUsers = ({ token, page, limit = 4 }: FetchUsersOptions) => {
   const offset = (page - 1) * limit;
-  const { data, loading, error } = useQuery<GetUsersData>(GET_USERS, {
+  const { data, loading, error, refetch } = useQuery<GetUsersData>(GET_USERS, {
     variables: {
       data: {
         offset,
@@ -23,5 +23,5 @@ export const fetchUsers = ({ token, page, limit = 4 }: FetchUsersOptions) => {
     },
   });
 
-  return { data, loading, error };
+  return { data, loading, error, refetch };
 };
