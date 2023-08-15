@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../../components/buttons/button';
 import { FormField } from '../../components/forms/form-field';
 import { ButtonsForm, FormContainer } from '../../components/forms/form-styles';
 import { ErrorMessage } from './error-message';
+import { CreateUserMutation } from '../../api/fetch-create-user';
 import { useNavigate } from 'react-router-dom';
+import { LoadingIndicator } from '../loading/loading-indicador';
 
-export const RegisterForm = () => {
+interface RegisterFormProps {
+  token: string;
+}
+
+export const RegisterForm = ({ token }: RegisterFormProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -14,6 +20,7 @@ export const RegisterForm = () => {
   const [userType, setUserType] = useState('');
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const navigate = useNavigate();
+  const { registerUser, loading, error } = CreateUserMutation({ token });
 
   const isEmailEmpty = !email.trim() && isButtonClicked;
   const isPasswordEmpty = !password.trim() && isButtonClicked;
@@ -27,11 +34,36 @@ export const RegisterForm = () => {
   const isValidDate = birthdayDate
     ? new Date(birthdayDate) <= currentDate && new Date(birthdayDate) >= minimumDate
     : true;
+  if (error && error.message === 'Operação não autenticada.') {
+    navigate('/login');
+  }
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     setIsButtonClicked(true);
+
+    registerUser({
+      variables: {
+        data: {
+          email: email,
+          name: name,
+          phone: phone,
+          birthDate: birthdayDate,
+          role: userType,
+          password: password,
+        },
+      },
+      onCompleted: () => {
+        navigate('/');
+      },
+      onError: (error) => {
+        console.error('Erro na mutação', error);
+      },
+    });
   };
-  return (
+  return loading ? (
+    <LoadingIndicator />
+  ) : (
     <FormContainer>
       <h1> Adicionar um usuário </h1>
       <FormField
@@ -85,7 +117,8 @@ export const RegisterForm = () => {
         <option value="user">User</option>
       </FormField>
 
-      {!isAnyFieldEmpty && !isValidDate && isButtonClicked && <ErrorMessage message="Data Inválida" />}
+      {!error && !isAnyFieldEmpty && !isValidDate && isButtonClicked && <ErrorMessage message="Data Inválida" />}
+      {!isAnyFieldEmpty && isValidDate && error && isButtonClicked && <ErrorMessage message={error.message} />}
       <ButtonsForm>
         <Button
           expand
