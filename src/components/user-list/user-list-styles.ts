@@ -24,10 +24,6 @@ export const UserItemContainer = styled.div<UserItemContainerProps>`
   display: flex;
   flex-direction: column;
   ${({ hasBorderBottom }) => hasBorderBottom && `border-bottom:${USER_LIST_BORDER};`}
-  h3,
-  p {
-    margin: 0;
-  }
   gap: ${GAP};
   padding: ${PADDING};
 `;
