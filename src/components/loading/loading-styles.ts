@@ -2,12 +2,18 @@ import styled from 'styled-components';
 
 const LOADING_CONTAINER_WIDTH = '60px';
 const LOADING_CONTAINER_HEIGHT = '100vh';
+const LOADING_CONTAINER_HEIGHT_LIST = '44vh';
 
-export const LoadingContainer = styled.div`
+interface LoadingContainerProps {
+  isLoadingList?: boolean;
+}
+
+export const LoadingContainer = styled.div<LoadingContainerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${LOADING_CONTAINER_HEIGHT};
+  height: ${({ isLoadingList }) =>
+    isLoadingList ? `${LOADING_CONTAINER_HEIGHT_LIST}` : `${LOADING_CONTAINER_HEIGHT}`};
 `;
 
 export const ImageLoading = styled.img`
