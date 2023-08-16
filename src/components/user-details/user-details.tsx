@@ -30,28 +30,23 @@ export const UserDetails = ({ userId, token }: UserDetailsProps) => {
           {user && (
             <UserInfo>
               <Paragraph hasPadding>
-                <StrongText>Nome:</StrongText>
-                {user.name}
+                <StrongText>Nome:</StrongText> {user.name}
               </Paragraph>
 
               <Paragraph hasPadding>
-                <StrongText>Email:</StrongText>
-                {user.email}
+                <StrongText>Email:</StrongText> {user.email}
               </Paragraph>
 
               <Paragraph hasPadding>
-                <StrongText>Telefone:</StrongText>
-                {user.phone}
+                <StrongText>Telefone:</StrongText> {user.phone}
               </Paragraph>
 
               <Paragraph hasPadding>
-                <StrongText>Data de Nascimento:</StrongText>
-                {user.birthDate}
+                <StrongText>Data de Nascimento:</StrongText> {user.birthDate}
               </Paragraph>
 
               <Paragraph hasPadding>
-                <StrongText>Tipo de usuário:</StrongText>
-                {user.role}
+                <StrongText>Tipo de usuário:</StrongText> {user.role}
               </Paragraph>
             </UserInfo>
           )}
