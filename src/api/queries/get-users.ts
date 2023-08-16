@@ -19,7 +19,7 @@ export const GET_USERS = gql`
   }
 `;
 
-export interface GetUserData {
+export interface GetUsersData {
   users: {
     nodes: [{ id: string; name: string; email: string }];
     count: number;
