@@ -51,6 +51,7 @@ export const UserList = ({ token }: UserListProps) => {
                 username={user.name}
                 email={user.email}
                 hasBorderBottom={index !== users.length - 1}
+                userId={user.id}
               />
             ))}
             {error && <ErrorMessage message={error.message} />}
