@@ -54,7 +54,7 @@ export const LoginForm = () => {
       />
       {loading && <div>Carregando...</div>}
       {!isAnyFieldEmpty && error && <ErrorMessage message={error.message} />}
-      <Button title="Entrar" onClick={handleFormSubmit} />
+      <Button expand title="Entrar" onClick={handleFormSubmit} />
     </FormContainer>
   );
 };
