@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { Pagination } from '../pagination/pagination';
 import { Separator } from '../separator/separator';
 
+const LIMIT = 4;
 interface UserListProps {
   token: string;
 }
@@ -20,7 +21,7 @@ export const UserList = ({ token }: UserListProps) => {
 
   const users = data?.users.nodes ?? [];
   const pageInfo = data?.users.count;
-  const totalPages = pageInfo ? Math.ceil(pageInfo / 4) : 0;
+  const totalPages = pageInfo ? Math.ceil(pageInfo / LIMIT) : 0;
   const navigate = useNavigate();
   if (error && error.message === 'Operação não autenticada.') {
     navigate('/login');
