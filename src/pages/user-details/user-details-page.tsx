@@ -14,15 +14,17 @@ export const UserDetailsPage = () => {
     navigate('/');
   };
 
+  const userId = id ?? '';
+
   useEffect(() => {
     if (validateToken(token)) {
       navigate('/login');
     }
-  }, [token, id]);
+  }, [token, userId]);
 
   return (
     <Container>
-      <UserDetails userId={id} token={token} />
+      <UserDetails userId={userId} token={token} />
       <Separator vertical size={12} />
       <Button title="Voltar a pagina usuários" onClick={handleBackToPageClick} />
     </Container>

@@ -7,7 +7,7 @@ import { Title } from '../user-list/user-list-styles';
 import { StrongText, UserDetailsContainer, UserInfo } from './user-details-styles';
 
 interface UserDetailsProps {
-  userId?: string;
+  userId: string;
   token: string;
 }
 

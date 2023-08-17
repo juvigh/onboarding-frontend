@@ -3,7 +3,7 @@ import { GET_USER, GetUserData } from './queries/get-user';
 
 interface FetchUserOptions {
   token: string;
-  userId?: string;
+  userId: string;
 }
 
 export const fetchUser = ({ token, userId }: FetchUserOptions) => {
