@@ -6,10 +6,13 @@ import { useLoginMutation } from '../../api/fetch-login-user';
 import { ErrorMessage } from './error-message';
 import { useNavigate } from 'react-router-dom';
 import { LoadingIndicator } from '../loading/loading-indicador';
+import { H1 } from '../../styles/text-styles';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailHasError, setEmailHasError] = useState(false);
+  const [passwordHasError, setPasswordHasError] = useState(false);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const navigate = useNavigate();
 
@@ -24,6 +27,8 @@ export const LoginForm = () => {
     setIsButtonClicked(true);
 
     if (isAnyFieldEmpty) {
+      setEmailHasError(isEmailEmpty);
+      setPasswordHasError(isPasswordEmpty);
       return;
     }
 
@@ -35,6 +40,8 @@ export const LoginForm = () => {
       },
       onError: (error) => {
         console.error('Erro na mutação', error);
+        setEmailHasError(true);
+        setPasswordHasError(true);
       },
     });
   };
@@ -43,13 +50,14 @@ export const LoginForm = () => {
     <LoadingIndicator />
   ) : (
     <FormContainer>
-      <h1> Bem vindo(a) a Taqtile </h1>
+      <H1> Bem vindo(a) a Taqtile </H1>
       <FormField
         label="Email"
         value={email}
         onChange={(value) => setEmail(value)}
         isButtonClicked={isButtonClicked}
         required
+        hasError={emailHasError}
       />
       <FormField
         label="Senha"
@@ -58,6 +66,7 @@ export const LoginForm = () => {
         type="password"
         isButtonClicked={isButtonClicked}
         required
+        hasError={passwordHasError}
       />
       {loading && <div>Carregando...</div>}
       {!isAnyFieldEmpty && error && <ErrorMessage message={error.message} />}
