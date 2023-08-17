@@ -10,9 +10,10 @@ interface FormFieldProps {
   value: string;
   type?: string;
   children?: React.ReactNode;
+  required?: boolean;
 }
 
-export const FormField = ({ label, onChange, isButtonClicked, value, type, children }: FormFieldProps) => {
+export const FormField = ({ label, onChange, isButtonClicked, value, type, children, required }: FormFieldProps) => {
   const emptyField = !value.trim() && isButtonClicked;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +38,9 @@ export const FormField = ({ label, onChange, isButtonClicked, value, type, child
         <Input onChange={handleInputChange} value={value} type={type || 'text'} />
       )}
 
-      <div className="caption-message">{emptyField && <ErrorMessage message="O campo é obrigatório" />}</div>
+      <div className="caption-message">
+        {required && emptyField && <ErrorMessage message="O campo é obrigatório" />}
+      </div>
     </FormFieldContainer>
   );
 };

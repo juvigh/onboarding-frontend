@@ -34,20 +34,34 @@ export const RegisterForm = () => {
   return (
     <FormContainer>
       <h1> Adicionar um usuário </h1>
-      <FormField label="Nome" value={name} onChange={(value) => setName(value)} isButtonClicked={isButtonClicked} />
-      <FormField label="Email" value={email} onChange={(value) => setEmail(value)} isButtonClicked={isButtonClicked} />
+      <FormField
+        label="Nome"
+        value={name}
+        onChange={(value) => setName(value)}
+        isButtonClicked={isButtonClicked}
+        required
+      />
+      <FormField
+        label="Email"
+        value={email}
+        onChange={(value) => setEmail(value)}
+        isButtonClicked={isButtonClicked}
+        required
+      />
       <FormField
         label="Data de nascimento"
         value={birthdayDate}
         type="Date"
         onChange={(value) => setBirthdayDate(value)}
         isButtonClicked={isButtonClicked}
+        required
       />
       <FormField
         label="Telefone"
         value={phone}
         onChange={(value) => setPhone(value)}
         isButtonClicked={isButtonClicked}
+        required
       />
       <FormField
         label="Senha"
@@ -55,6 +69,7 @@ export const RegisterForm = () => {
         onChange={(value) => setPassword(value)}
         type="password"
         isButtonClicked={isButtonClicked}
+        required
       />
 
       <FormField
@@ -63,6 +78,7 @@ export const RegisterForm = () => {
         onChange={(value) => setUserType(value)}
         type="select"
         isButtonClicked={isButtonClicked}
+        required
       >
         <option value="">Selecione o tipo</option>
         <option value="admin">Admin</option>
