@@ -10,6 +10,7 @@ interface ButtonProps {
   disable?: boolean;
   sizeRadius?: number;
   actionButton?: boolean;
+  border?: boolean;
 }
 
 export const Button = ({
@@ -19,6 +20,7 @@ export const Button = ({
   textColor,
   expand,
   disable,
+  border,
   sizeRadius,
   actionButton,
 }: ButtonProps) => {
@@ -31,6 +33,7 @@ export const Button = ({
       expand={expand}
       onClick={onClick}
       disabled={disable}
+      border={border}
     >
       {title}
     </ButtonContainer>

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button } from '../../components/buttons/button';
 import { FormField } from '../../components/forms/form-field';
-import { FormContainer } from '../../components/forms/form-styles';
+import { ButtonsForm, FormContainer } from '../../components/forms/form-styles';
 import { ErrorMessage } from './error-message';
+import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
   const [email, setEmail] = useState('');
@@ -12,6 +13,7 @@ export const RegisterForm = () => {
   const [phone, setPhone] = useState('');
   const [userType, setUserType] = useState('');
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const navigate = useNavigate();
 
   const isEmailEmpty = !email.trim() && isButtonClicked;
   const isPasswordEmpty = !password.trim() && isButtonClicked;
@@ -68,7 +70,17 @@ export const RegisterForm = () => {
       </FormField>
 
       {!isAnyFieldEmpty && !isValidDate && isButtonClicked && <ErrorMessage message="Data Inválida" />}
-      <Button expand title="Adicionar Usuário" onClick={handleFormSubmit} />
+      <ButtonsForm>
+        <Button
+          expand
+          title="Voltar para a página usuários"
+          bgColor="white"
+          textColor="black"
+          border
+          onClick={() => navigate('/')}
+        />
+        <Button expand title="Adicionar Usuário" onClick={handleFormSubmit} />
+      </ButtonsForm>
     </FormContainer>
   );
 };
