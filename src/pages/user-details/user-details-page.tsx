@@ -5,6 +5,7 @@ import { invalidToken } from '../../utils/validate-token';
 import { useEffect } from 'react';
 import { Button } from '../../components/buttons/button';
 import { Separator } from '../../components/separator/separator';
+import { typography } from '../../styles/typography';
 
 export const UserDetailsPage = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export const UserDetailsPage = () => {
   return (
     <Container>
       <UserDetails userId={userId} token={token} />
-      <Separator vertical size={12} />
+      <Separator vertical size={typography.separatorSize.large} />
       <Button title="Voltar a pagina usuários" onClick={handleBackToPageClick} />
     </Container>
   );
