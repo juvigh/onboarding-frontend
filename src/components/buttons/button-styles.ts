@@ -10,8 +10,7 @@ interface ButtonContainerProps {
   actionButton?: boolean;
   border?: boolean;
 }
-// quero que o padding seja diferente do botao de form, posso definir um padrao dentro de constants
-// e adc uma prop pra saber se é botao do form ou nao e assim mudar o padding
+
 export const ButtonContainer = styled.button<ButtonContainerProps>`
   padding: ${({ actionButton }) => (actionButton ? `${ACTION_BUTTON_PADDING}` : `${BUTTON_PADDING}`)};
   width: ${({ expand }) => (expand ? '100%' : 'auto')};
