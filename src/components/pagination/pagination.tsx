@@ -26,13 +26,13 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
   return (
     <PaginationContainer>
       <MenuPagination>
-        <Button title="Anterior" bgColor="#928f8f" onClick={handlePreviousPage} disable={currentPage === 1} />
+        <Button title="Anterior" bgColor="#928f8f" onClick={handlePreviousPage} disabled={currentPage === 1} />
         <Separator horizontal size={8} />
         <span>
           Página {currentPage} de {totalPages}
         </span>
         <Separator horizontal size={8} />
-        <Button title="Próximo" bgColor="#928f8f" onClick={handleNextPage} disable={currentPage === totalPages} />
+        <Button title="Próximo" bgColor="#928f8f" onClick={handleNextPage} disabled={currentPage === totalPages} />
       </MenuPagination>
       <Button
         title="+"

@@ -7,7 +7,7 @@ interface ButtonProps {
   textColor?: string;
   expand?: boolean;
   onClick?: (e: React.FormEvent) => Promise<string | null | undefined> | void;
-  disable?: boolean;
+  disabled?: boolean;
   sizeRadius?: number;
   actionButton?: boolean;
   border?: boolean;
@@ -19,7 +19,7 @@ export const Button = ({
   bgColor,
   textColor,
   expand,
-  disable,
+  disabled,
   border,
   sizeRadius,
   actionButton,
@@ -32,7 +32,7 @@ export const Button = ({
       textColor={textColor}
       expand={expand}
       onClick={onClick}
-      disabled={disable}
+      disabled={disabled}
       border={border}
     >
       {title}
