@@ -3,6 +3,7 @@ import { Button } from '../buttons/button';
 import { MenuPagination, PaginationContainer } from './pagination-styles';
 import { Separator } from '../separator/separator';
 import { useNavigate } from 'react-router-dom';
+import { colors } from '../../styles/colors';
 import { typography } from '../../styles/typography';
 interface PaginationProps {
   currentPage: number;
@@ -27,22 +28,15 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
   return (
     <PaginationContainer>
       <MenuPagination>
-        <Button title="Anterior" bgColor="#928f8f" onClick={handlePreviousPage} disabled={currentPage === 1} />
+        <Button title="Anterior" bgColor={colors.Gray} onClick={handlePreviousPage} disabled={currentPage === 1} />
         <Separator horizontal size={typography.separatorSize.medium} />
         <span>
           Página {currentPage} de {totalPages}
         </span>
         <Separator horizontal size={typography.separatorSize.medium} />
-        <Button title="Próximo" bgColor="#928f8f" onClick={handleNextPage} disabled={currentPage === totalPages} />
+        <Button title="Próximo" bgColor={colors.Gray} onClick={handleNextPage} disabled={currentPage === totalPages} />
       </MenuPagination>
-      <Button
-        title="+"
-        bgColor="black"
-        textColor="white"
-        sizeRadius={20}
-        actionButton
-        onClick={() => navigate('/register-user')}
-      />
+      <Button title="+" bgColor={colors.Black} largeRadius actionButton onClick={() => navigate('/register-user')} />
     </PaginationContainer>
   );
 };
