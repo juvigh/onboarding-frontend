@@ -11,3 +11,8 @@ export const FormContainer = styled.div`
     color: red;
   }
 `;
+
+export const ButtonsForm = styled.div`
+  display: flex;
+  gap: ${GAP}px;
+`;

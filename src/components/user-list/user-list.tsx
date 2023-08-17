@@ -38,7 +38,7 @@ export const UserList = ({ token }: UserListProps) => {
           <H1> Lista de usuários </H1>
         </Title>
         {loading ? (
-          <LoadingIndicator />
+          <LoadingIndicator isLoadingList />
         ) : (
           <>
             {users.map((user, index) => (

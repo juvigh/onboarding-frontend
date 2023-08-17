@@ -7,12 +7,34 @@ interface ButtonProps {
   textColor?: string;
   expand?: boolean;
   onClick?: (e: React.FormEvent) => Promise<string | null | undefined> | void;
-  disable?: boolean;
+  disabled?: boolean;
+  sizeRadius?: number;
+  actionButton?: boolean;
+  border?: boolean;
 }
 
-export const Button = ({ title, onClick, bgColor, textColor, expand, disable }: ButtonProps) => {
+export const Button = ({
+  title,
+  onClick,
+  bgColor,
+  textColor,
+  expand,
+  disabled,
+  border,
+  sizeRadius,
+  actionButton,
+}: ButtonProps) => {
   return (
-    <ButtonContainer bgColor={bgColor} textColor={textColor} expand={expand} onClick={onClick} disabled={disable}>
+    <ButtonContainer
+      actionButton={actionButton}
+      bgColor={bgColor}
+      sizeRadius={sizeRadius}
+      textColor={textColor}
+      expand={expand}
+      onClick={onClick}
+      disabled={disabled}
+      border={border}
+    >
       {title}
     </ButtonContainer>
   );

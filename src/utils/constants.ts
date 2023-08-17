@@ -1,5 +1,7 @@
 export const BUTTON_PADDING = '12px 4px';
+export const ACTION_BUTTON_PADDING = '12px 16px';
 export const BUTTON_BORDER_RADIUS = '8px';
+export const BUTTON_BORDER = '0.5px solid';
 
 export const INPUT_PADDING = '12px 4px';
 export const INPUT_BORDER_RADIUS = '8px';
