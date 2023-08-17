@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { RegisterForm } from '../../components/forms/register-form';
 import { Container } from './register-styles';
-import { validateToken } from '../../utils/validate-token';
+import { invalidToken } from '../../utils/validate-token';
 import { useNavigate } from 'react-router-dom';
 
 export const RegisterPage = () => {
@@ -9,7 +9,7 @@ export const RegisterPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (validateToken(token)) {
+    if (invalidToken(token)) {
       navigate('/login');
     }
   }, [token]);
