@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserDetails } from '../../components/user-details/user-details';
 import { Container } from './user-details-page-styles';
-import { validateToken } from '../../utils/validate-token';
+import { invalidToken } from '../../utils/validate-token';
 import { useEffect } from 'react';
 import { Button } from '../../components/buttons/button';
 import { Separator } from '../../components/separator/separator';
@@ -17,7 +17,7 @@ export const UserDetailsPage = () => {
   const userId = id ?? '';
 
   useEffect(() => {
-    if (validateToken(token)) {
+    if (invalidToken(token)) {
       navigate('/login');
     }
   }, [token, userId]);
