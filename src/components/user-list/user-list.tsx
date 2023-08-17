@@ -39,7 +39,9 @@ export const UserList = ({ token }: UserListProps) => {
     <>
       <UserListContainer>
         <Title>
-          <H1> Lista de usuários </H1>
+          <H1 color="White" centred>
+            Lista de usuários
+          </H1>
         </Title>
         {loading ? (
           <LoadingIndicator isLoadingList />

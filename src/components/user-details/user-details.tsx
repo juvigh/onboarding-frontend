@@ -21,7 +21,9 @@ export const UserDetails = ({ userId, token }: UserDetailsProps) => {
   return (
     <UserDetailsContainer>
       <Title>
-        <H1> Detalhes do usuário </H1>
+        <H1 centred color="White">
+          Detalhes do usuário
+        </H1>
       </Title>
       {loading ? (
         <LoadingIndicator isLoadingList />
