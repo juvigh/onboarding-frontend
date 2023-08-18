@@ -3,7 +3,7 @@ import { Separator } from '../separator/separator';
 import { ErrorMessage } from './error-message';
 import { FormFieldContainer, Input, InputSelect } from './form-field-styles';
 import { Label } from '../../styles/text-styles';
-import { typography } from '../../styles/typography';
+import { separatorSize } from '../../styles/constants-size';
 
 interface FormFieldProps {
   label: string;
@@ -46,7 +46,7 @@ export const FormField = ({
   return (
     <FormFieldContainer>
       <Label hasError={hasError}>{label}</Label>
-      <Separator vertical size={typography.separatorSize.small} />
+      <Separator vertical size={separatorSize.small} />
       {type === 'select' ? (
         <InputSelect onChange={handleSelectChange} value={value} hasError={hasError}>
           {children}

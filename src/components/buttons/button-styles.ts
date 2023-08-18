@@ -7,7 +7,7 @@ import {
 } from './../../utils/constants';
 import styled from 'styled-components';
 import { BUTTON_BORDER_RADIUS, BUTTON_PADDING } from '../../utils/constants';
-import { typography } from '../../styles/typography';
+import { textSize, textWeight } from '../../styles/constants-size';
 import { colors } from '../../styles/colors';
 
 interface ButtonContainerProps {
@@ -28,7 +28,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   border: ${({ border, textColor }) => (border ? `${BUTTON_BORDER}${textColor}` : 'none')};
   border-radius: ${({ largeRadius }) => (largeRadius ? `${ACTION_BUTTON_RADIUS}` : `${BUTTON_BORDER_RADIUS}`)};
   text-align: center;
-  font-size: ${typography.textSize.medium};
-  font-weight: ${typography.textWeight.regular};
+  font-size: ${textSize.medium};
+  font-weight: ${textWeight.regular};
   height: ${({ largeRadius }) => (largeRadius ? `${BUTTON_LARGE_RAIDUS_HEIGHT}` : `${BUTTON_HEIGHT}`)};
 `;

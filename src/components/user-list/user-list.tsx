@@ -8,7 +8,7 @@ import { ErrorMessage } from '../forms/error-message';
 import { useNavigate } from 'react-router-dom';
 import { Pagination } from '../pagination/pagination';
 import { Separator } from '../separator/separator';
-import { typography } from '../../styles/typography';
+import { separatorSize } from '../../styles/constants-size';
 
 const LIMIT = 4;
 interface UserListProps {
@@ -61,7 +61,7 @@ export const UserList = ({ token }: UserListProps) => {
           </>
         )}
       </UserListContainer>
-      <Separator vertical size={typography.separatorSize.medium} />
+      <Separator vertical size={separatorSize.medium} />
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
     </>
   );

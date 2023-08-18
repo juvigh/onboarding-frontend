@@ -4,7 +4,7 @@ import { MenuPagination, PaginationContainer } from './pagination-styles';
 import { Separator } from '../separator/separator';
 import { useNavigate } from 'react-router-dom';
 import { colors } from '../../styles/colors';
-import { typography } from '../../styles/typography';
+import { separatorSize } from '../../styles/constants-size';
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -29,11 +29,11 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
     <PaginationContainer>
       <MenuPagination>
         <Button title="Anterior" bgColor={colors.Gray} onClick={handlePreviousPage} disabled={currentPage === 1} />
-        <Separator horizontal size={typography.separatorSize.medium} />
+        <Separator horizontal size={separatorSize.medium} />
         <span>
           Página {currentPage} de {totalPages}
         </span>
-        <Separator horizontal size={typography.separatorSize.medium} />
+        <Separator horizontal size={separatorSize.medium} />
         <Button title="Próximo" bgColor={colors.Gray} onClick={handleNextPage} disabled={currentPage === totalPages} />
       </MenuPagination>
       <Button title="+" bgColor={colors.Black} largeRadius actionButton onClick={() => navigate('/register-user')} />
