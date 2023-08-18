@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { colors } from './colors';
 import { textSize, textWeight } from './constants-size';
+import { device } from './breakpoints';
 
 const PADDING_PARAGRAPH = '16px 0';
 const H1_MARGIN_VERTICAL = '24px 0';
@@ -31,6 +32,10 @@ export const H3 = styled.h3`
   margin: 0;
   font-size: ${textSize.medium};
   font-weight: ${textWeight.bold};
+
+  @media ${device.deviceSmall} {
+    font-size: ${textSize.medium};
+  }
 `;
 
 export const Paragraph = styled.p<ParagraphProps>`
@@ -38,6 +43,10 @@ export const Paragraph = styled.p<ParagraphProps>`
   ${({ hasPadding }) => hasPadding && `padding:${PADDING_PARAGRAPH};`}
   font-weight: ${textWeight.regular};
   font-size: ${textSize.medium};
+
+  @media ${device.deviceSmall} {
+    font-size: ${textSize.medium};
+  }
 `;
 
 export const Caption = styled.span`
