@@ -5,7 +5,7 @@ interface UserItemContainerProps {
   hasBorderBottom: boolean;
 }
 
-const PADDING = '12px';
+const PADDING = '16px';
 const GAP = '8px';
 export const UserListContainer = styled.div`
   display: flex;
@@ -22,8 +22,13 @@ export const Title = styled.div`
 
 export const UserItemContainer = styled.div<UserItemContainerProps>`
   display: flex;
-  flex-direction: column;
   ${({ hasBorderBottom }) => hasBorderBottom && `border-bottom:${USER_LIST_BORDER};`}
-  gap: ${GAP};
+  justify-content: space-between;
   padding: ${PADDING};
+`;
+
+export const UserItemText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${GAP};
 `;
