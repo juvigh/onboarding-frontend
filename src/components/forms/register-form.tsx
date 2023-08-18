@@ -152,7 +152,7 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
       <ButtonsForm>
         <Button
           expand
-          title="Voltar para a página usuários"
+          title="Voltar a página usuários"
           bgColor="white"
           textColor="black"
           border

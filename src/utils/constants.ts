@@ -14,7 +14,10 @@ export const INPUT_BORDER_RADIUS = `${radius.radius}`;
 export const INPUT_BORDER = `1px solid ${colors.Gray}`;
 export const INPUT_BORDER_ERROR = `1px solid ${colors.Red}`;
 
-export const MARGIN_SIDE = '400px';
+export const MARGIN_SIDE_DESKTOP = '400px';
+export const MARGIN_SIDE_DEVICE_LARGE = '160px';
+export const MARGIN_SIDE = '12px';
+export const MARGIN_VERTICAL = '60px';
 
 export const USER_LIST_BORDER_RADIUS = `${radius.radius}`;
 export const USER_LIST_BORDER = `0.5px solid ${colors.Gray}`;
