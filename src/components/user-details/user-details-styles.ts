@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { USER_LIST_BORDER, USER_LIST_BORDER_RADIUS } from '../../utils/constants';
+import { colors } from '../../styles/colors';
+import { textSize } from '../../styles/constants-size';
 
 const PADDING_USER_INFO = '8px 12px';
 
@@ -17,5 +19,6 @@ export const UserInfo = styled.div`
 `;
 
 export const StrongText = styled.strong`
-  color: #555;
+  color: ${colors.Gray};
+  font-size: ${textSize.medium};
 `;

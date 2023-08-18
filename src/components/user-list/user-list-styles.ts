@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { USER_LIST_BORDER, USER_LIST_BORDER_RADIUS } from '../../utils/constants';
+import { colors } from '../../styles/colors';
 
 interface UserItemContainerProps {
   hasBorderBottom: boolean;
@@ -15,8 +16,7 @@ export const UserListContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  background: blueviolet;
-  padding: ${PADDING};
+  background: ${colors.Blueviolet};
   border-radius: ${USER_LIST_BORDER_RADIUS} ${USER_LIST_BORDER_RADIUS} 0 0;
 `;
 

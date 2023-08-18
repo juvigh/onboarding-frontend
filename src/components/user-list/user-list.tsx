@@ -8,6 +8,7 @@ import { ErrorMessage } from '../forms/error-message';
 import { useNavigate } from 'react-router-dom';
 import { Pagination } from '../pagination/pagination';
 import { Separator } from '../separator/separator';
+import { separatorSize } from '../../styles/constants-size';
 
 const LIMIT = 4;
 interface UserListProps {
@@ -39,7 +40,9 @@ export const UserList = ({ token }: UserListProps) => {
     <>
       <UserListContainer>
         <Title>
-          <H1> Lista de usuários </H1>
+          <H1 color="White" centred>
+            Lista de usuários
+          </H1>
         </Title>
         {loading ? (
           <LoadingIndicator isLoadingList />
@@ -58,7 +61,7 @@ export const UserList = ({ token }: UserListProps) => {
           </>
         )}
       </UserListContainer>
-      <Separator vertical size={8} />
+      <Separator vertical size={separatorSize.medium} />
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
     </>
   );

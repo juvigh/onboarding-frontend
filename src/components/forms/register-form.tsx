@@ -6,6 +6,7 @@ import { ErrorMessage } from './error-message';
 import { CreateUserMutation } from '../../api/fetch-create-user';
 import { useNavigate } from 'react-router-dom';
 import { LoadingIndicator } from '../loading/loading-indicador';
+import { H1 } from '../../styles/text-styles';
 
 interface RegisterFormProps {
   token: string;
@@ -18,6 +19,12 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
   const [birthdayDate, setBirthdayDate] = useState('');
   const [phone, setPhone] = useState('');
   const [userType, setUserType] = useState('');
+  const [emailHasError, setEmailHasError] = useState(false);
+  const [passwordHasError, setPasswordHasError] = useState(false);
+  const [nameHasError, setNameHasError] = useState(false);
+  const [birthdayDateHasError, setBirthdayDateHasError] = useState(false);
+  const [phoneHasError, setPhoneHasError] = useState(false);
+  const [userTypeHasError, setUserTypeHasError] = useState(false);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const navigate = useNavigate();
   const { registerUser, loading, error } = CreateUserMutation({ token });
@@ -27,7 +34,9 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
   const isNameEmpty = !name.trim() && isButtonClicked;
   const isPhoneEmpty = !phone.trim() && isButtonClicked;
   const isBirthdayDateEmpty = !birthdayDate.trim() && isButtonClicked;
-  const isAnyFieldEmpty = isEmailEmpty || isPasswordEmpty || isNameEmpty || isPhoneEmpty || isBirthdayDateEmpty;
+  const isUserTypeEmpty = !userType.trim() && isButtonClicked;
+  const isAnyFieldEmpty =
+    isEmailEmpty || isPasswordEmpty || isNameEmpty || isPhoneEmpty || isBirthdayDateEmpty || isUserTypeEmpty;
 
   const currentDate = new Date();
   const minimumDate = new Date('1900-01-01');
@@ -41,6 +50,15 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsButtonClicked(true);
+
+    if (isAnyFieldEmpty) {
+      setEmailHasError(isEmailEmpty);
+      setPasswordHasError(isPasswordEmpty);
+      setBirthdayDateHasError(isBirthdayDateEmpty);
+      setPhoneHasError(isPhoneEmpty);
+      setUserTypeHasError(isUserTypeEmpty);
+      return;
+    }
 
     registerUser({
       variables: {
@@ -58,6 +76,12 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
       },
       onError: (error) => {
         console.error('Erro na mutação', error);
+        setEmailHasError(true);
+        setPasswordHasError(true);
+        setBirthdayDateHasError(true);
+        setPhoneHasError(true);
+        setUserTypeHasError(true);
+        setNameHasError(true);
       },
     });
   };
@@ -65,13 +89,14 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
     <LoadingIndicator />
   ) : (
     <FormContainer>
-      <h1> Adicionar um usuário </h1>
+      <H1> Adicionar um usuário </H1>
       <FormField
         label="Nome"
         value={name}
         onChange={(value) => setName(value)}
         isButtonClicked={isButtonClicked}
         required
+        hasError={nameHasError}
       />
       <FormField
         label="Email"
@@ -79,6 +104,7 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
         onChange={(value) => setEmail(value)}
         isButtonClicked={isButtonClicked}
         required
+        hasError={emailHasError}
       />
       <FormField
         label="Data de nascimento"
@@ -87,6 +113,7 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
         onChange={(value) => setBirthdayDate(value)}
         isButtonClicked={isButtonClicked}
         required
+        hasError={birthdayDateHasError}
       />
       <FormField
         label="Telefone"
@@ -94,6 +121,7 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
         onChange={(value) => setPhone(value)}
         isButtonClicked={isButtonClicked}
         required
+        hasError={phoneHasError}
       />
       <FormField
         label="Senha"
@@ -102,6 +130,7 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
         type="password"
         isButtonClicked={isButtonClicked}
         required
+        hasError={passwordHasError}
       />
 
       <FormField
@@ -111,6 +140,7 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
         type="select"
         isButtonClicked={isButtonClicked}
         required
+        hasError={userTypeHasError}
       >
         <option value="">Selecione o tipo</option>
         <option value="admin">Admin</option>

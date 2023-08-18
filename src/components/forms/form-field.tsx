@@ -2,6 +2,8 @@ import React from 'react';
 import { Separator } from '../separator/separator';
 import { ErrorMessage } from './error-message';
 import { FormFieldContainer, Input, InputSelect } from './form-field-styles';
+import { Label } from '../../styles/text-styles';
+import { separatorSize } from '../../styles/constants-size';
 
 interface FormFieldProps {
   label: string;
@@ -11,36 +13,49 @@ interface FormFieldProps {
   type?: string;
   children?: React.ReactNode;
   required?: boolean;
+  hasError?: boolean;
 }
 
-export const FormField = ({ label, onChange, isButtonClicked, value, type, children, required }: FormFieldProps) => {
+export const FormField = ({
+  label,
+  onChange,
+  isButtonClicked,
+  value,
+  type,
+  children,
+  hasError,
+  required,
+}: FormFieldProps) => {
   const emptyField = !value.trim() && isButtonClicked;
+  if (emptyField) {
+    hasError = true;
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     onChange(newValue);
+    hasError = false;
   };
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newValue = e.target.value;
     onChange(newValue);
+    hasError = false;
   };
 
   return (
     <FormFieldContainer>
-      <label>{label}</label>
-      <Separator vertical size={4} />
+      <Label hasError={hasError}>{label}</Label>
+      <Separator vertical size={separatorSize.small} />
       {type === 'select' ? (
-        <InputSelect onChange={handleSelectChange} value={value}>
+        <InputSelect onChange={handleSelectChange} value={value} hasError={hasError}>
           {children}
         </InputSelect>
       ) : (
-        <Input onChange={handleInputChange} value={value} type={type || 'text'} />
+        <Input onChange={handleInputChange} value={value} type={type || 'text'} hasError={hasError} />
       )}
 
-      <div className="caption-message">
-        {required && emptyField && <ErrorMessage message="O campo é obrigatório" />}
-      </div>
+      {required && emptyField && <ErrorMessage message="O campo é obrigatório" />}
     </FormFieldContainer>
   );
 };

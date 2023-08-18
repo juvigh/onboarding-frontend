@@ -8,7 +8,8 @@ interface ButtonProps {
   expand?: boolean;
   onClick?: (e: React.FormEvent) => Promise<string | null | undefined> | void;
   disabled?: boolean;
-  sizeRadius?: number;
+  disable?: boolean;
+  largeRadius?: boolean;
   actionButton?: boolean;
   border?: boolean;
 }
@@ -21,14 +22,14 @@ export const Button = ({
   expand,
   disabled,
   border,
-  sizeRadius,
+  largeRadius,
   actionButton,
 }: ButtonProps) => {
   return (
     <ButtonContainer
       actionButton={actionButton}
       bgColor={bgColor}
-      sizeRadius={sizeRadius}
+      largeRadius={largeRadius}
       textColor={textColor}
       expand={expand}
       onClick={onClick}
