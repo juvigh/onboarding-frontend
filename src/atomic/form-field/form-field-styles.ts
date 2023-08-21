@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { INPUT_BORDER, INPUT_BORDER_ERROR } from './../../utils/constants';
+import { INPUT_BORDER, INPUT_BORDER_ERROR } from '../../utils/constants';
 import { INPUT_BORDER_RADIUS, INPUT_PADDING } from '../../utils/constants';
 
 interface InputProps {

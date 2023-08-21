@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Button } from '../buttons/button';
-import { FormField } from './form-field';
+import { Button } from '../../atomic/buttons/button';
+import { FormField } from '../../atomic/form-field/form-field';
 import { FormContainer } from './form-styles';
 import { useLoginMutation } from '../../api/fetch-login-user';
-import { ErrorMessage } from './error-message';
+import { ErrorMessage } from '../../atomic/form-field/error-message';
 import { useNavigate } from 'react-router-dom';
-import { LoadingIndicator } from '../loading/loading-indicador';
+import { LoadingIndicator } from '../../atomic/loading/loading-indicador';
 import { H1 } from '../../styles/text-styles';
 
 export const LoginForm = () => {

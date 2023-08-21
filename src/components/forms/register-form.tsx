@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Button } from '../../components/buttons/button';
-import { FormField } from '../../components/forms/form-field';
+import { Button } from '../../atomic/buttons/button';
+import { FormField } from '../../atomic/form-field/form-field';
 import { ButtonsForm, FormContainer } from '../../components/forms/form-styles';
-import { ErrorMessage } from './error-message';
+import { ErrorMessage } from '../../atomic/form-field/error-message';
 import { CreateUserMutation } from '../../api/fetch-create-user';
 import { useNavigate } from 'react-router-dom';
-import { LoadingIndicator } from '../loading/loading-indicador';
+import { LoadingIndicator } from '../../atomic/loading/loading-indicador';
 import { H1 } from '../../styles/text-styles';
 
 interface RegisterFormProps {

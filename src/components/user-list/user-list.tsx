@@ -3,11 +3,11 @@ import { UserItem } from './user-item';
 import { Title, UserListContainer } from './user-list-styles';
 import { H1 } from '../../styles/text-styles';
 import { fetchUsers } from '../../api/fetch-users';
-import { LoadingIndicator } from '../loading/loading-indicador';
-import { ErrorMessage } from '../forms/error-message';
+import { LoadingIndicator } from '../../atomic/loading/loading-indicador';
+import { ErrorMessage } from '../../atomic/form-field/error-message';
 import { useNavigate } from 'react-router-dom';
 import { Pagination } from '../pagination/pagination';
-import { Separator } from '../separator/separator';
+import { Separator } from '../../atomic/separator/separator';
 import { separatorSize } from '../../styles/constants-size';
 
 const LIMIT = 4;

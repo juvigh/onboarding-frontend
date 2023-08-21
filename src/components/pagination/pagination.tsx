@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '../buttons/button';
+import { Button } from '../../atomic/buttons/button';
 import { MenuPagination, PaginationContainer } from './pagination-styles';
-import { Separator } from '../separator/separator';
+import { Separator } from '../../atomic/separator/separator';
 import { useNavigate } from 'react-router-dom';
 import { colors } from '../../styles/colors';
 import { separatorSize } from '../../styles/constants-size';

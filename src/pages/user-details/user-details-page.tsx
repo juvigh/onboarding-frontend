@@ -3,8 +3,8 @@ import { UserDetails } from '../../components/user-details/user-details';
 import { Container } from './user-details-page-styles';
 import { invalidToken } from '../../utils/validate-token';
 import { useEffect } from 'react';
-import { Button } from '../../components/buttons/button';
-import { Separator } from '../../components/separator/separator';
+import { Button } from '../../atomic/buttons/button';
+import { Separator } from '../../atomic/separator/separator';
 import { separatorSize } from '../../styles/constants-size';
 
 export const UserDetailsPage = () => {
