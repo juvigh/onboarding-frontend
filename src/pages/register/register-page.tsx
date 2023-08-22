@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { RegisterForm } from '../../components/forms/register-form';
+import { RegisterForm } from '../../components/forms/register-form.component';
 import { Container } from './register-styles';
 import { invalidToken } from '../../utils/validate-token';
 import { useNavigate } from 'react-router-dom';

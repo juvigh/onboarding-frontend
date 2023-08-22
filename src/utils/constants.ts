@@ -1,5 +1,5 @@
-import { colors } from '../styles/colors';
-import { radius } from '../styles/constants-size';
+import { colors } from '../atomic/styles/colors';
+import { radius } from '../atomic/styles/constants-size';
 
 export const BUTTON_PADDING = '12px 8px';
 export const ACTION_BUTTON_PADDING = '12px 16px';

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from '../../atomic/buttons/button';
-import { MenuPagination, PaginationContainer } from './pagination-styles';
+import { Button } from '../../atomic/buttons/button.component';
+import { MenuPagination, PaginationContainer } from './pagination.styles';
 import { Separator } from '../../atomic/separator/separator';
 import { useNavigate } from 'react-router-dom';
-import { colors } from '../../styles/colors';
-import { separatorSize } from '../../styles/constants-size';
+import { colors } from '../../atomic/styles/colors';
+import { separatorSize } from '../../atomic/styles/constants-size';
 interface PaginationProps {
   currentPage: number;
   totalPages: number;

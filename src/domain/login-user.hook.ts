@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER, LoginUserData } from './mutation/login-user';
+import { LOGIN_USER, LoginUserData } from '../data/mutation/login-user';
 
 export const useLoginMutation = () => {
   const [loginUser, { data, loading, error }] = useMutation<LoginUserData>(LOGIN_USER);

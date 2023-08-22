@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { UserList } from '../../components/user-list/user-list';
+import { UserList } from '../../components/user-list/user-list.component';
 import { Container } from './home-styles';
 import { useEffect } from 'react';
 import { invalidToken } from '../../utils/validate-token';

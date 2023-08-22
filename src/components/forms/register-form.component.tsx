@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Button } from '../../atomic/buttons/button';
-import { FormField } from '../../atomic/form-field/form-field';
-import { ButtonsForm, FormContainer } from '../../components/forms/form-styles';
-import { ErrorMessage } from '../../atomic/form-field/error-message';
-import { CreateUserMutation } from '../../api/fetch-create-user';
+import { Button } from '../../atomic/buttons/button.component';
+import { FormField } from '../../atomic/form-field/form-field.component';
+import { ButtonsForm, FormContainer } from './form.styles';
+import { ErrorMessage } from '../../atomic/form-field/error-message.component';
+import { useCreateUserMutation } from '../../domain/create-user.hook';
 import { useNavigate } from 'react-router-dom';
 import { LoadingIndicator } from '../../atomic/loading/loading-indicador';
-import { H1 } from '../../styles/text-styles';
+import { H1 } from '../../atomic/styles/text-styles';
 
 interface RegisterFormProps {
   token: string;
@@ -27,7 +27,7 @@ export const RegisterForm = ({ token }: RegisterFormProps) => {
   const [userTypeHasError, setUserTypeHasError] = useState(false);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const navigate = useNavigate();
-  const { registerUser, loading, error } = CreateUserMutation({ token });
+  const { registerUser, loading, error } = useCreateUserMutation({ token });
 
   const isEmailEmpty = !email.trim() && isButtonClicked;
   const isPasswordEmpty = !password.trim() && isButtonClicked;

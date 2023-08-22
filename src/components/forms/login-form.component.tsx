@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Button } from '../../atomic/buttons/button';
-import { FormField } from '../../atomic/form-field/form-field';
-import { FormContainer } from './form-styles';
-import { useLoginMutation } from '../../api/fetch-login-user';
-import { ErrorMessage } from '../../atomic/form-field/error-message';
+import { Button } from '../../atomic/buttons/button.component';
+import { FormField } from '../../atomic/form-field/form-field.component';
+import { FormContainer } from './form.styles';
+import { useLoginMutation } from '../../domain/login-user.hook';
+import { ErrorMessage } from '../../atomic/form-field/error-message.component';
 import { useNavigate } from 'react-router-dom';
 import { LoadingIndicator } from '../../atomic/loading/loading-indicador';
-import { H1 } from '../../styles/text-styles';
+import { H1 } from '../../atomic/styles/text-styles';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');

@@ -7,9 +7,9 @@ import {
 } from '../../utils/constants';
 import styled from 'styled-components';
 import { BUTTON_BORDER_RADIUS, BUTTON_PADDING } from '../../utils/constants';
-import { textSize, textWeight } from '../../styles/constants-size';
-import { colors } from '../../styles/colors';
-import { device } from '../../styles/breakpoints';
+import { textSize, textWeight } from '../styles/constants-size';
+import { colors } from '../styles/colors';
+import { device } from '../styles/breakpoints';
 
 interface ButtonContainerProps {
   expand?: boolean;

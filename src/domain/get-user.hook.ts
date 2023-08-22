@@ -1,12 +1,12 @@
 import { useQuery } from '@apollo/client';
-import { GET_USER, GetUserData } from './queries/get-user';
+import { GET_USER, GetUserData } from '../data/queries/get-user';
 
 interface FetchUserOptions {
   token: string;
   userId: string;
 }
 
-export const fetchUser = ({ token, userId }: FetchUserOptions) => {
+export const useGetUser = ({ token, userId }: FetchUserOptions) => {
   const { data, loading, error } = useQuery<GetUserData>(GET_USER, {
     variables: { userId },
 

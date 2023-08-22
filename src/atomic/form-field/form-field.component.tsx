@@ -1,9 +1,9 @@
 import React from 'react';
 import { Separator } from '../separator/separator';
-import { ErrorMessage } from './error-message';
-import { FormFieldContainer, Input, InputSelect } from './form-field-styles';
-import { Label } from '../../styles/text-styles';
-import { separatorSize } from '../../styles/constants-size';
+import { ErrorMessage } from './error-message.component';
+import { FormFieldContainer, Input, InputSelect } from './form-field.styles';
+import { Label } from '../styles/text-styles';
+import { separatorSize } from '../styles/constants-size';
 
 interface FormFieldProps {
   label: string;

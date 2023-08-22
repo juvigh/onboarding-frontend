@@ -1,12 +1,12 @@
 import { useQuery } from '@apollo/client';
-import { GET_USERS, GetUsersData } from './queries/get-users';
+import { GET_USERS, GetUsersData } from '../data/queries/get-users';
 interface FetchUsersOptions {
   token: string;
   page: number;
   limit?: number;
 }
 
-export const fetchUsers = ({ token, page, limit = 4 }: FetchUsersOptions) => {
+export const useGetUsers = ({ token, page, limit = 4 }: FetchUsersOptions) => {
   const offset = (page - 1) * limit;
   const { data, loading, error, refetch } = useQuery<GetUsersData>(GET_USERS, {
     variables: {

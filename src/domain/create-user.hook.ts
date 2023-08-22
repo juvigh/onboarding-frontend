@@ -1,11 +1,11 @@
 import { useMutation } from '@apollo/client';
-import { CREATE_USER } from './mutation/create-user';
+import { CREATE_USER } from '../data/mutation/create-user';
 
 interface CreateUserMutationProps {
   token: string;
 }
 
-export const CreateUserMutation = ({ token }: CreateUserMutationProps) => {
+export const useCreateUserMutation = ({ token }: CreateUserMutationProps) => {
   const [registerUser, { data, loading, error }] = useMutation(CREATE_USER, {
     context: {
       headers: {

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { UserItem } from './user-item';
-import { Title, UserListContainer } from './user-list-styles';
-import { H1 } from '../../styles/text-styles';
-import { fetchUsers } from '../../api/fetch-users';
+import { UserItem } from './user-item.component';
+import { Title, UserListContainer } from './user-list.styles';
+import { H1 } from '../../atomic/styles/text-styles';
+import { useGetUsers } from '../../domain/get-users.hook';
 import { LoadingIndicator } from '../../atomic/loading/loading-indicador';
-import { ErrorMessage } from '../../atomic/form-field/error-message';
+import { ErrorMessage } from '../../atomic/form-field/error-message.component';
 import { useNavigate } from 'react-router-dom';
-import { Pagination } from '../pagination/pagination';
+import { Pagination } from '../pagination/pagination.component';
 import { Separator } from '../../atomic/separator/separator';
-import { separatorSize } from '../../styles/constants-size';
+import { separatorSize } from '../../atomic/styles/constants-size';
 
 const LIMIT = 4;
 interface UserListProps {
@@ -18,7 +18,7 @@ interface UserListProps {
 export const UserList = ({ token }: UserListProps) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { data, loading, error, refetch } = fetchUsers({ token, page: currentPage });
+  const { data, loading, error, refetch } = useGetUsers({ token, page: currentPage });
 
   const users = data?.users.nodes ?? [];
   const pageInfo = data?.users.count;

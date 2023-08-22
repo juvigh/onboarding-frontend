@@ -1,7 +1,7 @@
 import React from 'react';
-import { UserItemContainer, UserItemText } from './user-list-styles';
-import { H3, Paragraph } from '../../styles/text-styles';
-import { Button } from '../../atomic/buttons/button';
+import { UserItemContainer, UserItemText } from './user-list.styles';
+import { H3, Paragraph } from '../../atomic/styles/text-styles';
+import { Button } from '../../atomic/buttons/button.component';
 import { useNavigate } from 'react-router-dom';
 
 interface UserItemProps {

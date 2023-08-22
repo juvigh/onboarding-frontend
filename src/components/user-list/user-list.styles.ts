@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 import { USER_LIST_BORDER, USER_LIST_BORDER_RADIUS } from '../../utils/constants';
-import { colors } from '../../styles/colors';
+import { colors } from '../../atomic/styles/colors';
 
 interface UserItemContainerProps {
   hasBorderBottom: boolean;

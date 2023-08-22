@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { fetchUser } from '../../api/fetch-user';
-import { H1, Paragraph } from '../../styles/text-styles';
-import { ErrorMessage } from '../../atomic/form-field/error-message';
+import { fetchUser } from '../../data/fetch-user';
+import { H1, Paragraph } from '../../atomic/styles/text-styles';
+import { ErrorMessage } from '../../atomic/form-field/error-message.component';
 import { LoadingIndicator } from '../../atomic/loading/loading-indicador';
-import { Title } from '../user-list/user-list-styles';
-import { StrongText, UserDetailsContainer, UserInfo } from './user-details-styles';
+import { Title } from '../user-list/user-list.styles';
+import { StrongText, UserDetailsContainer, UserInfo } from './user-details.styles';
 
 interface UserDetailsProps {
   userId: string;

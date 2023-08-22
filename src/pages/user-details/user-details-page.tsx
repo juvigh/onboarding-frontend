@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { UserDetails } from '../../components/user-details/user-details';
+import { UserDetails } from '../../components/user-details/user-details.component';
 import { Container } from './user-details-page-styles';
 import { invalidToken } from '../../utils/validate-token';
 import { useEffect } from 'react';
-import { Button } from '../../atomic/buttons/button';
+import { Button } from '../../atomic/buttons/button.component';
 import { Separator } from '../../atomic/separator/separator';
-import { separatorSize } from '../../styles/constants-size';
+import { separatorSize } from '../../atomic/styles/constants-size';
 
 export const UserDetailsPage = () => {
   const { id } = useParams();
